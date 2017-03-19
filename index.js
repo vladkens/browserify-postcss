@@ -41,7 +41,7 @@ function moduleify (css, inject) {
   if (inject === 'base64') {
     exp = 'require("browserify-postcss").byUrl("' + base64(css) + '")'
   } else if (inject) {
-    exp = "require('browserify-postcss')('" + css.replace(/\\/g, '\\\\').replace(/'/gm, "\\'").replace(/[\r\n]+/gm, ' ') + "')"
+    exp = "require('browserify-postcss')('" + css.replace(/\\/g, '\\\\').replace(/'/gm, "\\'").replace(/\s+/gm, ' ') + "')"
   } else {
     exp = JSON.stringify(css)
   }
